@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>06 - Type Ahead - test</title>
+</head>
+<body>
+  
+</body>
+
+<script>
+  
+  const req_url = 'https://raw.githubusercontent.com/cn27529/JavaScript30/master/06%20-%20Type%20Ahead/TangPoetry.json';
+  const my_data =[];
+  
+  //http://soyaine.cn/JavaScript30/
+  //https://blog.othree.net/log/2014/11/25/fetch/
+
+  // fetch(req_url)
+  //   .then(res => {
+  //     console.log(res.json())
+  //   })
+  //   //.then(data => my_data.push(...data))
+
+  fetch(req_url).then(function(res) {
+  // res instanceof Response == true.
+  if (res.ok) {
+    res.json().then(function(data) {
+      console.log(data.entries);
+    });
+  } else {
+    console.log("Looks like the response wasn't perfect, got status", res.status);
+  }
+}, function(e) {
+  console.log("Fetch failed!", e);
+});
+  
+  console.log(my_data)
+
+
+
+</script>
+</html>
