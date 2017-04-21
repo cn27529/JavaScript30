@@ -1,45 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>06 - Type Ahead - test</title>
+  <title>06-test</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-  
+
 </body>
 
 <script>
-  
   const req_url = 'https://raw.githubusercontent.com/cn27529/JavaScript30/master/06%20-%20Type%20Ahead/TangPoetry.json';
-  const my_data =[];
-  
+  const my_data = []
+
   //http://soyaine.cn/JavaScript30/
   //https://blog.othree.net/log/2014/11/25/fetch/
 
-  // fetch(req_url)
-  //   .then(res => {
-  //     console.log(res.json())
-  //   })
-  //   //.then(data => my_data.push(...data))
+  var call_obj = {
 
-  fetch(req_url).then(function(res) {
-  // res instanceof Response == true.
-  if (res.ok) {
-    res.json().then(function(data) {
-      console.log(data.entries);
-    });
-  } else {
-    console.log("Looks like the response wasn't perfect, got status", res.status);
+    call_ajax: function (my_url) {
+      $.ajax(my_url, {})
+        .done(function (result) {
+          Object.assign(my_data, JSON.parse(result))
+        })
+    },
+
+    call_get: function (my_url) {
+
+      $.get(my_url, function (data) {
+        Object.assign(my_data, JSON.parse(data))
+      })
+
+    },
+
+    call_fetch: function (my_url) {
+
+      fetch(my_url)
+        .then(function (res) {
+          //console.log(res.ok) //true is http 200
+          var json_data = res.json()
+          return json_data
+        })
+        .then(function (data) {
+          Object.assign(my_data, data)
+        })
+    }
+
   }
-}, function(e) {
-  console.log("Fetch failed!", e);
-});
-  
+
+  //call_obj.call_ajax(req_url)
+  call_obj.call_get(req_url)
+  //call_obj.call_fetch(req_url)
+
   console.log(my_data)
-
-
+  console.log('顆顆')
+  var show_data = function(){ console.log(my_data) }; setTimeout(show_data, 10)
+  
+  
 
 </script>
+
 </html>
