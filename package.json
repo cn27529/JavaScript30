@@ -1,0 +1,21 @@
+{
+  "name": "javascript30",
+  "version": "1.0.0",
+  "description": "创建日期：2016-12-20  \r 最后更新：2017-01-07",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cn27529/JavaScript30.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cn27529/JavaScript30/issues"
+  },
+  "homepage": "https://github.com/cn27529/JavaScript30#readme"
+}
