@@ -5,7 +5,7 @@
 
 > 中文指南作者：[緝熙Soyaine](https://github.com/soyaine)  
 > [JavaScript30](https://javascript30.com) 教程作者：[Wes Bos](https://github.com/wesbos)    
-> 完整指南在 [GitHub](https://github.com/soyaine/JavaScript30)，喜歡請 Star 哦♪(^∇^*)
+> 完整指南在 [GitHub](https://github.com/cn27529/JavaScript30)，喜歡請 Star 哦♪(^∇^*)
 
 ## JavaScript30 是什麼？
 
@@ -23,7 +23,7 @@ JavaScirpt30 是 Wes Bos 推出的一個 30 天挑戰。專案免費提供了 30
 
 寫這份中文指南的另一個原因是看了 Nitish Dayal 寫的 Guides，我決定效仿他，在記錄筆記的同時梳理思路，整理形成指南。我相信 Learn by Use 的同時也深信教是最好的學。希望這份指南能夠説明到想要進行練習的人們，特別是那些想要入門的前端小白們。
 
-目前這份指南還在更新之中，歡迎監督我，如果你想要及時獲取新的文章，可以[在 GitHub Star/Fork 我的 Repo](https://github.com/soyaine/JavaScript30)。
+目前這份指南還在更新之中，歡迎監督我，如果你想要及時獲取新的文章，可以[在 GitHub Star/Fork 我的 Repo](https://github.com/cn27529/JavaScript30)。
 
 ## 如何參加挑戰
 
@@ -34,20 +34,20 @@ JavaScirpt30 是 Wes Bos 推出的一個 30 天挑戰。專案免費提供了 30
 - [挑戰初始文檔](https://github.com/wesbos/JavaScript30)：這是 Wes Bos 這份教程涉及的代碼，你可以直接 Clone 或者下載到本地，然後開始你 30 天的挑戰之旅。文檔共有 30 個資料夾，每個資料夾中至少有兩個檔。
     - **index-START.html**：是提供給我們的初始文檔，方便我們專注於 JavaScript 的編寫，這個文檔已經將基礎的 HTML 和 CSS 部分寫好，我們只需要在這個基礎上編寫 JavaScript 代碼，實現特定的功能即可。
     - **index-FINISHED.html**：已經實現了最終效果的文檔，可以查看效果和實現思路。
-- [我寫的中文指南源碼](https://github.com/soyaine/JavaScript30)：文檔結構和 Wes Bos 提供的相同，進入每個資料夾都可查看當前挑戰的指南（README.md），我完成挑戰時建立的文件是 **index-SOYAINE.html**，裡面有核心代碼的中文注釋。如果閱讀過程中發現問題，請[在這裡提 issue](https://github.com/soyaine/JavaScript30/issues)。  如果喜歡記得 Star 喲~♪(^∇^*)，鼓勵我寫出更好的文章。
+- [我寫的中文指南源碼](https://github.com/cn27529/JavaScript30)：文檔結構和 Wes Bos 提供的相同，進入每個資料夾都可查看當前挑戰的指南（README.md），我完成挑戰時建立的文件是 **index-SOYAINE.html**，裡面有核心代碼的中文注釋。如果閱讀過程中發現問題，請[在這裡提 issue](https://github.com/cn27529/JavaScript30/issues)。  如果喜歡記得 Star 喲~♪(^∇^*)，鼓勵我寫出更好的文章。
 
 ## 目錄
 
-1. [x] [JavaScript Drum Kit  指南](https://github.com/soyaine/JavaScript30/tree/master/01%20-%20JavaScript%20Drum%20Kit) |  [純 JS 模擬敲鼓效果](http://soyaine.github.io/JavaScript30/01 - JavaScript Drum Kit/index-SOYAINE.html)
-2. [x] [JS + CSS Clock 指南](https://github.com/soyaine/JavaScript30/tree/master/02%20-%20JS%20%2B%20CSS%20Clock) |  [純 JavaScript+CSS 時鐘效果](http://soyaine.github.io/JavaScript30/02 - JS %2B CSS Clock/index-SOYAINE.html)
-3. [x] [CSS Variables 指南](https://github.com/soyaine/JavaScript30/tree/master/03%20-%20CSS%20%Variables) |  [用 CSS 變數實現拖動控制參數效果](http://soyaine.github.io/JavaScript30/03%20-%20CSS%20Variables/index-SOYAINE.html)
-4. [x] [Array Cardio, Day 1 指南](https://github.com/soyaine/JavaScript30/tree/master/04%20-%20Array%20Cardio%20Day%201) | [陣列基本操作方法示例一](http://soyaine.github.io/JavaScript30/04%20-%20Array%20Cardio%20Day%201/index-SOYAINE.html)
-5. [x] [Flex Panel Gallery 指南](https://github.com/soyaine/JavaScript30/blob/master/05%20-%20Flex%20Panel%20Gallery/README.md) | [可伸縮的圖片牆線上效果](https://soyaine.github.io/JavaScript30/05%20-%20Flex%20Panel%20Gallery/index-SOYAINE2.html)
-6. [x] [Type Ahead 指南](https://github.com/soyaine/JavaScript30/blob/master/06%20-%20Type%20Ahead/README.md) |  [根據關鍵字快速匹配詩句線上效果](https://soyaine.github.io/JavaScript30/06%20-%20Type%20Ahead/index-SOYAINE.html)
-7. [x] [Array Cardio, Day 2 指南](https://github.com/soyaine/JavaScript30/tree/master/07%20-%20Array%20Cardio%20Day%202) | [陣列基本操作方法示例二](http://soyaine.github.io/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index-SOYAINE.html)
-8. [x] [Fun with HTML5 Canvas 指南](https://github.com/soyaine/JavaScript30/tree/master/08%20-%20Fun%20with%20HTML5%20Canvas) | [彩虹畫筆繪畫板線上效果](https://soyaine.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index-SOYAINE.html) 
-9. [x] [Dev Tools Domination 指南](https://github.com/soyaine/JavaScript30/blob/master/09%20-%20Dev%20Tools%20Domination/README.md) | [Console 調試技巧線上示例](https://soyaine.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/index-SOYAINE.html)
-10. [x] [Hold Shift and Check Checkboxes 指南](https://github.com/soyaine/JavaScript30/blob/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/README.md) | [Shift 批量選中線上效果](https://soyaine.github.io/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-SOYAINE.html)
+1. [x] [JavaScript Drum Kit  指南](https://github.com/cn27529/JavaScript30/tree/master/01%20-%20JavaScript%20Drum%20Kit) |  [純 JS 模擬敲鼓效果](https://github.com/cn27529/JavaScript30/01 - JavaScript Drum Kit/index-SOYAINE.html)
+2. [x] [JS + CSS Clock 指南](https://github.com/cn27529/JavaScript30/tree/master/02%20-%20JS%20%2B%20CSS%20Clock) |  [純 JavaScript+CSS 時鐘效果](https://github.com/cn27529/JavaScript30/02 - JS %2B CSS Clock/index-SOYAINE.html)
+3. [x] [CSS Variables 指南](https://github.com/cn27529/JavaScript30/tree/master/03%20-%20CSS%20%Variables) |  [用 CSS 變數實現拖動控制參數效果](https://github.com/cn27529/JavaScript30/03%20-%20CSS%20Variables/index-SOYAINE.html)
+4. [x] [Array Cardio, Day 1 指南](https://github.com/cn27529/JavaScript30/tree/master/04%20-%20Array%20Cardio%20Day%201) | [陣列基本操作方法示例一](https://github.com/cn27529/JavaScript30/04%20-%20Array%20Cardio%20Day%201/index-SOYAINE.html)
+5. [x] [Flex Panel Gallery 指南](https://github.com/cn27529/JavaScript30/blob/master/05%20-%20Flex%20Panel%20Gallery/README.md) | [可伸縮的圖片牆線上效果](https://github.com/cn27529/JavaScript30/05%20-%20Flex%20Panel%20Gallery/index-SOYAINE2.html)
+6. [x] [Type Ahead 指南](https://github.com/cn27529/JavaScript30/blob/master/06%20-%20Type%20Ahead/README.md) |  [根據關鍵字快速匹配詩句線上效果](https://github.com/cn27529/JavaScript30/06%20-%20Type%20Ahead/index-SOYAINE.html)
+7. [x] [Array Cardio, Day 2 指南](https://github.com/cn27529/JavaScript30/tree/master/07%20-%20Array%20Cardio%20Day%202) | [陣列基本操作方法示例二](https://github.com/cn27529/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index-SOYAINE.html)
+8. [x] [Fun with HTML5 Canvas 指南](https://github.com/cn27529/JavaScript30/tree/master/08%20-%20Fun%20with%20HTML5%20Canvas) | [彩虹畫筆繪畫板線上效果](https://github.com/cn27529/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index-SOYAINE.html) 
+9. [x] [Dev Tools Domination 指南](https://github.com/cn27529/JavaScript30/blob/master/09%20-%20Dev%20Tools%20Domination/README.md) | [Console 調試技巧線上示例](https://github.com/cn27529/JavaScript30/09%20-%20Dev%20Tools%20Domination/index-SOYAINE.html)
+10. [x] [Hold Shift and Check Checkboxes 指南](https://github.com/cn27529/JavaScript30/blob/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/README.md) | [Shift 批量選中線上效果](https://github.com/cn27529/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-SOYAINE.html)
 11. [ ] Custom Video Player
 12. [ ] Key Sequence Detection
 13. [ ] Slide in on Scroll
