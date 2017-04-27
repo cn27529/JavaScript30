@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>06-test</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="./js30-06.js"></script>
+  <link rel="stylesheet" href="./js30-06.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>輸入尋找的關鍵文字</h1>
+    <input class="form-control" type="text" id="search" class="search" placeholder="詩句 詩名 詩人">
+    <ul class="list-group" id="suggestions">
+      <li class="list-group-item">First item</li>
+    </ul>
+
+  </div>
+
+</body>
+
+<script>
+  const req_url = 'https://raw.githubusercontent.com/cn27529/JavaScript30/master/06%20-%20Type%20Ahead/TangPoetry.json';
+  const my_data = []
+
+  //http://soyaine.cn/JavaScript30/
+  //https://blog.othree.net/log/2014/11/25/fetch/
+
+  var call_obj = {
+
+    call_ajax: function (my_url) {
+      $.ajax(my_url, {})
+        .done(function (result) {
+          Object.assign(my_data, JSON.parse(result))
+        })
+    },
+
+    call_get: function (my_url) {
+
+      $.get(my_url, function (data) {
+        Object.assign(my_data, JSON.parse(data))
+      })
+
+    },
+
+    call_fetch: function (my_url) {
+
+      fetch(my_url)
+        .then(function (res) {
+          //console.log(res.ok) //true is http 200
+          var json_data = res.json()
+          return json_data
+        })
+        .then(function (data) {
+          Object.assign(my_data, data)
+        })
+    }
+
+  }
+
+  //讀取資料
+  call_obj.call_ajax(req_url)
+  //call_obj.call_get(req_url)
+  //call_obj.call_fetch(req_url)
+
+  console.log(my_data)
+  console.log('顆顆')
+  //var show_data = function(){ console.log(my_data) }; setTimeout(show_data, 10)
+
+  function filter_mydata(keyword, data) {
+    //var keyword = this.value
+    //console.log(keyword)
+    var result_data = data.filter(function (each_item) {
+      //console.log(item)
+      const item_name = each_item.detail_author.join('') //名字
+      //console.log(name)
+      const regex = new RegExp(keyword, 'gi'); //正則找出匹配的詩句
+      //console.log(regex)
+      const name_ok = item_name.match(regex)
+      const title_ok = each_item.title.match(regex)
+      const text_ok = each_item.detail_text.match(regex)
+      //console.log(name_ok || title_ok || text_ok)
+      
+      console.log(name_ok)
+      console.log(title_ok)
+      console.log(text_ok)
+
+      return name_ok || title_ok || text_ok
+    
+      //return null
+    })
+    //console.log(result_data)
+    return result_data
+  }
+
+  function display_mydata() {
+    var keyword = this.value
+    var filter_results = filter_mydata(keyword, my_data)
+    console.log(filter_results)
+
+
+  }
+
+  var search = document.querySelector('#search')
+  const suggestions = document.querySelector('#suggestions')
+  //search.addEventListener('change', searchMydata)
+  search.addEventListener('keyup', display_mydata)
+
+</script>
+
+</html>
