@@ -101,7 +101,7 @@
   }
 
   function highlight_html(keyword, data) {
-    const regex = new RegExp(keyword, 'gi'); //正則找出匹配的詩句    
+    const regex = new RegExp(keyword, 'gi'); //正則找出匹配的詩句
     let html = data.map(poet => {
       // 替換高亮的標籤
       const text = poet.detail_text.replace(regex, '<span class="hl">' + keyword + '</span>');
