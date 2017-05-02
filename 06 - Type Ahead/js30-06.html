@@ -20,7 +20,6 @@
     <h1>輸入尋找的關鍵文字</h1>
     <input class="form-control" type="text" id="search" class="search" placeholder="詩句 詩名 詩人">
     <ul class="list-group" id="suggestions">
-      <li class="list-group-item">First item</li>
     </ul>
 
   </div>
@@ -88,25 +87,46 @@
       const title_ok = each_item.title.match(regex)
       const text_ok = each_item.detail_text.match(regex)
       //console.log(name_ok || title_ok || text_ok)
-      
+
       console.log(name_ok)
       console.log(title_ok)
       console.log(text_ok)
 
       return name_ok || title_ok || text_ok
-    
+
       //return null
     })
     //console.log(result_data)
     return result_data
   }
 
+  function highlight_html(keyword, data) {
+    const regex = new RegExp(keyword, 'gi'); //正則找出匹配的詩句    
+    let html = data.map(poet => {
+      // 替換高亮的標籤
+      const text = poet.detail_text.replace(regex, '<span class="hl">' + keyword + '</span>');
+      const title = poet.title.replace(regex, '<span class="hl">' + keyword + '</span>');
+      const author = poet.detail_author[0].replace(regex, '<span class="hl">' + keyword + '</span>');
+      // 構造 HTML 值
+      return `
+        <li class="list-group-item">
+          <span class="poet">${text}</span>
+          <span class="title">${title} - ${author}</span>
+        </li>
+      `;
+    }).join('');
+
+    return html;
+
+  }
+
   function display_mydata() {
     var keyword = this.value
-    var filter_results = filter_mydata(keyword, my_data)
-    console.log(filter_results)
-
-
+    const res = filter_mydata(keyword, my_data)
+    //console.log(filter_results)
+    const html = highlight_html(keyword, res)
+    //console.log(html);
+    suggestions.innerHTML = html;
   }
 
   var search = document.querySelector('#search')
