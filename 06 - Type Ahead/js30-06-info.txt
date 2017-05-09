@@ -1,0 +1,5 @@
+﻿https://github.com/wesbos/JavaScript30
+
+https://github.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON
+
+https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/AllData.json

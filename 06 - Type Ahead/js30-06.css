@@ -1,8 +1,25 @@
 body{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-.hl {
+.highlight-keyword {
         /*background:hsla(193, 37%, 64%, 0.65);*/
-      background: #ff6666
+      background: #009933;
+      color: #ffffff;
     }
+
+.list-group-item {    
+    border: 0px solid #dddddd;
+    margin-bottom: 10px;
+}    
+
+.poet{
+    font-size: 18px;
+    color: #000000;
+    margin-right: 5px;
+}
+
+.title{
+    color: #888888;
+}
+
