@@ -11,12 +11,14 @@ body{
 .list-group-item {    
     border: 0px solid #dddddd;
     margin-bottom: 10px;
-}    
+}
 
 .poet{
     font-size: 18px;
-    color: #000000;
     margin-right: 5px;
+    /*
+    font-style: oblique;*/
+    color: #336699;
 }
 
 .title{
