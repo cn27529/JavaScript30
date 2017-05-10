@@ -30,18 +30,35 @@
 </body>
 
 <script>
-
   //let req_url = 'https://raw.githubusercontent.com/cn27529/JavaScript30/master/06%20-%20Type%20Ahead/TangPoetry.json';
   let req_url = 'https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/AllData.json';
-
   const my_data = []
 
-  
+  //讀取資料的物件
+  var JSON_data_API = {
 
-  function filter_mydata(keyword, data) {
+    get: function (url) {
 
-    //var keyword = this.value
-    console.log('開始filter資料')
+      console.log('閞始呼叫get取資料')
+
+      fetch(url)
+        .then(function (res) {
+          //console.log(res.ok) //true is http 200
+          var json_data = res.json()
+          return json_data
+        })
+        .then(function (data) {
+          Object.assign(my_data, data)
+          console.log('fetch的資料己response')
+        })
+        .then(function (data) {
+          console.log('my_data己assign ok')
+        })
+    }
+
+  }
+
+  function filter_data(keyword, data) {
 
     var result_data = data.filter(function (poet) {
       //console.log(item)
@@ -49,19 +66,25 @@
       const item_name = poet.CityName //臺北市
 
       let areaNames = []
-      for (let i = 0; i < poet.AreaList.length; i++) {
-        areaNames.push(poet.AreaList[i].AreaName + '' + poet.AreaList[i].ZipCode + '-' + poet.AreaList[i].AreaEngName)
+      for (let i = 0; i < poet.AreaList.length; i++) {        
+        areaNames.push(
+          `
+          ${poet.AreaList[i].AreaName}${poet.AreaList[i].ZipCode}
+          -${poet.AreaList[i].AreaEngName}
+          `
+        )
       } //中正區......
-      let areaNamesString = areaNames.join('')
+      let areanames_string = areaNames.join('')
 
       //console.log(regex)
       const name_ok = item_name.match(regex)
       const en_name_ok = poet.CityEngName.match(regex)
-      const areas_ok = areaNamesString.match(regex)
+      const areas_ok = areanames_string.match(regex)
 
       return name_ok || en_name_ok || areas_ok
+
     })
-    console.log('filter後筆數'+result_data.length)
+    console.log('經過filter後筆數' + result_data.length)
     return result_data
   }
 
@@ -96,14 +119,20 @@
 
   }
 
-  function display_mydata() {
-    
+  function get_input_keyword(value) {
+    console.log('取得輸入的關鍵字')
     var keyword = ''
-    if(typeof this.value !== 'undefined') keyword = this.value     
-    const res = filter_mydata(keyword, my_data)
-    const html = highlight_html(keyword, res)
+    if (typeof value !== 'undefined') keyword = value    
+    return keyword
+  }
+  
+  function display_data() {
+
+    let keyword = get_input_keyword(this.value) //取得輸入的關鍵字值
+    const res = filter_data(keyword, my_data) //filter有符合的資料
+    const html = highlight_html(keyword, res) //關鍵文字做高亮處理
     //console.log(html);
-    suggestions.innerHTML = html;
+    suggestions.innerHTML = html; //顯示於畫面
     console.log('-------------結束-------------')
 
   }
@@ -111,37 +140,11 @@
   var search = document.querySelector('#search')
   const suggestions = document.querySelector('#suggestions')
   //search.addEventListener('change', searchMydata)
-  search.addEventListener('keyup', display_mydata)
+  search.addEventListener('keyup', display_data, false)
   search.focus()
-
-  //讀取資料的API
-  var data_API = {
-   
-    get: function (url) {
-      
-      console.log('閞始呼叫get取資料')
-
-      fetch(url)
-        .then(function (res) {
-          //console.log(res.ok) //true is http 200
-          var json_data = res.json()
-          return json_data
-        })
-        .then(function (data) {
-          Object.assign(my_data, data)
-          console.log('fetch的資料己回來')
-        })
-        .then(function (data) {
-          console.log('my_data己ok')          
-        })
-    }
-
-  }
- 
-  //呼叫API
-  data_API.get(req_url)  
+  
+  JSON_data_API.get(req_url) //呼叫get取得JSON資料
   console.log('顆顆')
-
 
 </script>
 
