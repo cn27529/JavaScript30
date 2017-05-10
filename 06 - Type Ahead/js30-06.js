@@ -87,9 +87,13 @@
 
   }
 
-  function get_input_keyword(value) {
+  function get_keyword() {
+
     console.log('取得輸入的關鍵字')
     let keyword = ''
+    let search = document.querySelector('#search')
+    keyword = search.value
+
     if (typeof value !== 'undefined') keyword = value
     const regex = new RegExp('台', 'gi') //正則找出匹配的
     keyword = keyword.replace(regex,'臺')    
@@ -98,11 +102,13 @@
   
   function display_data() {
 
-    let keyword = get_input_keyword(this.value) //取得輸入的關鍵字值
+    let keyword = get_keyword() //取得輸入的關鍵字值
     const res = filter_data(keyword, my_data) //filter有符合的資料
     const html = highlight_html(keyword, res) //關鍵文字做高亮處理
-    //console.log(html);
+    const suggestions = document.querySelector('#suggestions')
     suggestions.innerHTML = html; //顯示於畫面
     console.log('-------------結束-------------')
 
   }
+
+  JSON_data_API.get(req_url) //呼叫get取得JSON資料
