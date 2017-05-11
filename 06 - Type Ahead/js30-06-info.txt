@@ -1,7 +1,15 @@
-﻿https://github.com/wesbos/JavaScript30
+﻿原作
+https://github.com/wesbos/JavaScript30
 
+426版本
+https://github.com/soyaine/JavaScript30
+https://github.com/soyaine/JavaScript30/tree/master/06%20-%20Type%20Ahead
+
+台灣 縣市，鄉鎮，地址 中英文 JSON
 https://github.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON
 
-https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/AllData.json
+HackMD
+https://hackmd.io/JwNg7ApgTCAmCMBaYBjetEBYDMPECMQBDABkSIhIDNMJ9sJ5t8g=?both
 
-https://hackmd.io/JwNg7ApgTCAmCMBaYBjetEBYDMPECMQBDABkSIhIDNMJ9sJ5t8g=
+codepen
+https://codepen.io/cn27529/pen/KmoggO
