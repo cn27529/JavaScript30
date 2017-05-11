@@ -1,32 +1,34 @@
-//let req_url = 'https://raw.githubusercontent.com/cn27529/JavaScript30/master/06%20-%20Type%20Ahead/TangPoetry.json';
-  let req_url = 'https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/AllData.json';
-  const my_data = []
 
-  //讀取資料的物件
-  var JSON_data_API = {
 
-    get: function (url) {
+//資料來源
+const req_url = 'https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/AllData.json';
 
-      console.log('閞始呼叫get取資料')
+//今日主角
+var my_data = []
 
-      fetch(url)
-        .then(function (res) {
-          //console.log(res.ok) //true is http 200
-          var json_data = res.json()
-          return json_data
-        })
-        .then(function (data) {
-          Object.assign(my_data, data)
-          console.log('fetch的資料己response')
-        })
-        .then(function (data) {
-          console.log('my_data己assign ok')
-        })
-    }
+//取資料時用
+var call_data_obj = {
 
+  //拿資料過程
+  assign_data: function (url) {
+    //console.log(typeof url)
+    if (typeof url !== 'string' || url === undefined || url.length === 0) return false
+    fetch(url)
+      .then(function (res) {
+        //console.log(res.ok) //true is http 200
+        var data = res.json()
+        return data
+      })
+      .then(function (data) {
+        my_data = Object.assign([], data)
+        return data
+      })
   }
 
-  function filter_data(keyword, data) {
+}
+
+//過濾有符合的
+function filter_data(keyword, data) {
 
     var result_data = data.filter(function (poet) {
       //console.log(item)
@@ -52,63 +54,60 @@
       return name_ok || en_name_ok || areas_ok
 
     })
-    console.log('經過filter後筆數' + result_data.length)
+
     return result_data
   }
 
-  function highlight_html(keyword, data) {
 
-    console.log('將關鍵文字做高亮處理')
+//關鍵文字做高亮處理
+function highlight_html(keyword, data) {
 
-    const regex = new RegExp(keyword, 'gi') //正則找出匹配的
-    let html = data.map(poet => {
-      // 替換高亮的標籤
-      const name = poet.CityName.replace(regex, '<span class="highlight-keyword">' + keyword + '</span>')
-      const en = poet.CityEngName.replace(regex, '<span class="highlight-keyword">' + keyword + '</span>')
-      const areacount = poet.AreaList.length;
-      //ZipCode, AreaName, AreaEngName
-      let areaNames = []
-      for (let i = 0; i < poet.AreaList.length; i++) {
-        areaNames.push(poet.AreaList[i].AreaName + '' + poet.AreaList[i].ZipCode + '-' + poet.AreaList[i].AreaEngName)
-      }
-      let areaNamesString = areaNames.join('、')
-      const area_html = areaNamesString.replace(regex, '<span class="highlight-keyword">' + keyword + '</span>')
-      // 構造 HTML 值
-      return `
+  let html = data.map(item => {
+    // 替換高亮的標籤
+    const name = item.CityName.replaceAll(keyword, '<span class="highlight-keyword">' + keyword + '</span>')
+    const en = item.CityEngName.replaceAll(keyword, '<span class="highlight-keyword">' + keyword + '</span>')
+    const areacount = item.AreaList.length;
+    //ZipCode, AreaName, AreaEngName
+    let areaNames = []
+    for (let i = 0; i < item.AreaList.length; i++) {
+      areaNames.push(`${item.AreaList[i].AreaName}${item.AreaList[i].ZipCode}-${item.AreaList[i].AreaEngName}`)
+    }
+    let areaNamesString = areaNames.join('、')
+    const area_html = areaNamesString.replaceAll(keyword, '<span class="highlight-keyword">' + keyword + '</span>')
+    // 構造 HTML 值
+    return `
         <li class="list-group-item">
           <span class="poet">${name}-${en}</span>
           <span class="title">${area_html}</span>
           <span class="badge">${areacount}</span>
         </li>
       `;
-    }).join('')
+  }).join('')
 
-    return html
+  return html
 
-  }
+}
 
-  function get_keyword() {
+//取得輸入的關鍵字
+function get_keyword() {
 
-    console.log('取得輸入的關鍵字')
-    let keyword = ''
-    let search = document.querySelector('#search')
-    keyword = search.value
+  let search = document.querySelector('#search')
+  let keyword = search.value
+  if (keyword.indexOf('台') >= 0) keyword = keyword.replaceAll('台', '臺')
+  return keyword
 
-    if (typeof value !== 'undefined') keyword = value
-    const regex = new RegExp('台', 'gi') //正則找出匹配的
-    keyword = keyword.replace(regex,'臺')    
-    return keyword
-  }
-  
-  function display_data() {
+}
 
-    let keyword = get_keyword() //取得輸入的關鍵字值
-    const res = filter_data(keyword, my_data) //filter有符合的資料
-    const html = highlight_html(keyword, res) //關鍵文字做高亮處理
-    const suggestions = document.querySelector('#suggestions')
-    suggestions.innerHTML = html; //顯示於畫面
-    console.log('-------------結束-------------')
+//字串取代
+String.prototype.replaceAll = function (string, replaceValue) {
+  return this.split(string).join(replaceValue);
+}
 
-  }
+//綁定在畫面
+function bind_html(html) {
+  const suggestions = document.querySelector('#suggestions')
+  suggestions.innerHTML = html;
+}
 
-  JSON_data_API.get(req_url) //呼叫get取得JSON資料
+//取得資料
+call_data_obj.assign_data(req_url)

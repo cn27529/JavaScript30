@@ -31,7 +31,17 @@
   search.focus()
   //search.addEventListener('change', display_UI)
   //search.addEventListener('keyup', display_UI, false) 
+  
   console.log('顆顆')
+  
+  //顯示於畫面
+  function display_UI() {
+    let keyword = get_keyword()
+    let res_filter = filter_data(keyword, my_data)
+    let res_html = highlight_html(keyword, res_filter)
+    bind_html(res_html)
+    console.log('-------------完成惹-------------')
+  }
 
 </script>
 
